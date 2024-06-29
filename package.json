@@ -1,0 +1,21 @@
+{
+  "name": "svdm-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "pnpm -F svdm build",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --check . --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "docs",
+    "svdm"
+  ],
+  "packageManager": "pnpm@9.4.0",
+  "devDependencies": {
+    "prettier": "^3.3.2"
+  }
+}

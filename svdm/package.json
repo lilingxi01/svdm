@@ -1,0 +1,22 @@
+{
+  "name": "svdm",
+  "version": "0.1.0",
+  "description": "Styling Variance Decomposition Module - A styling implementation decomposition system that embraces variance in multi-dimensional design space.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "keywords": ["styling", "design", "system", "variance"],
+  "author": "Lingxi Li",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsup src",
+    "dev": "rm -rf dist && tsup src --watch"
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0"
+  }
+}

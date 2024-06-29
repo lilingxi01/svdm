@@ -1,0 +1,12 @@
+.DS_Store
+
+.idea/
+.vscode/
+.nova/
+
+node_modules/
+
+yarn-error.log
+
+dist/
+.next/
