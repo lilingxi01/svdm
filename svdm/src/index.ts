@@ -38,6 +38,25 @@ type VariantSingletonValue<T> =
     : never;
 
 /**
+ * Singleton function is used to override the default type enforcement to your own type.
+ * This function will give you an object that you can call `use` to inject your variant singleton with custom type.
+ *
+ * Usage:
+ * ```ts
+ * // Inject your custom type and put your type-safe variant singleton into dots.
+ * singleton<CustomPayloadType>.use({ ... });
+ * ```
+ */
+function singleton<Singleton>() {
+  function singletonModifier<V extends Record<string, Singleton>>(
+    selfDefinedSingleton: Record<keyof V, Singleton>,
+  ): Record<keyof V, Singleton> {
+    return selfDefinedSingleton;
+  }
+  return { use: singletonModifier };
+}
+
+/**
  * Combines multiple variants singleton into all variants.
  */
 type CompoundedVariantsSchema<T> = {
@@ -85,5 +104,5 @@ function svd<Variants>(
   };
 }
 
-export { svd };
+export { svd, singleton };
 export type { SVDProps };
