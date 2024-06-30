@@ -6,6 +6,10 @@
     "build": "pnpm -F svdm build",
     "docs:build": "pnpm -F docs build",
     "docs:dev": "pnpm -F docs dev",
+    "bump:patch": "cd svdm && pnpm version patch --no-workspaces-update && cd ..",
+    "bump:minor": "cd svdm && pnpm version minor --no-workspaces-update && cd ..",
+    "bump:major": "cd svdm && pnpm version major --no-workspaces-update && cd ..",
+    "test": "pnpm -F svdm jest",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --check . --write"
   },
