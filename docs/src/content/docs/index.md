@@ -14,6 +14,7 @@ SVDM Documentation is still under development (partially finished). We are worki
 :::
 
 **SVDM** (**S**tyling **V**ariance **D**ecomposition **M**odule) is a multi-dimensional styling variance decomposition system in TypeScript that allows you to define and manage style variations in a structured and scalable way. This module comes extremely handy when:
+
 - you are building a complex design system with variations that affect multiple components or tags,
 - you are working on a high-quality UI component library that has put so much effort on design details,
 - or you are tired of defining config definition typings again and again.

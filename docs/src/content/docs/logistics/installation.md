@@ -17,17 +17,17 @@ Once you have installed SVDM, you can import it into your project.
 
 ```typescript
 // Please note that the function is called `svd` because "m" means module.
-import { svd } from 'svdm';
+import { svd } from "svdm";
 ```
 
 If you need type hints for component props, you can import the type as well.
 
 ```typescript
-import type { SVDMProps } from 'svdm';
+import type { SVDMProps } from "svdm";
 ```
 
 Or you can import both at the same time.
 
 ```typescript
-import { svd, SVDMProps } from 'svdm';
+import { svd, SVDMProps } from "svdm";
 ```

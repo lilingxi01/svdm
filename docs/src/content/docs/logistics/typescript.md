@@ -12,17 +12,17 @@ This document will guide you through what you can expect from SVDM when messing 
 Let's get started with a very simple example. We have one variant called `variant` and it has two variations: `primary` and `secondary`.
 
 ```typescript
-import { svd } from 'svdm';
+import { svd } from "svdm";
 
 const variants = svd({
   variants: {
     variant: {
-      primary: 'text-primary',
-      secondary: 'text-secondary',
+      primary: "text-primary",
+      secondary: "text-secondary",
     },
   },
   defaultVariants: {
-    variant: 'primary',
+    variant: "primary",
   },
 });
 ```
@@ -30,18 +30,18 @@ const variants = svd({
 In this example, if we change the value of the secondary variance to a number, it will throw a TypeScript typing error that warns you about the type mismatch.
 
 ```typescript {7-8}
-import { svd } from 'svdm';
+import { svd } from "svdm";
 
 const variants = svd({
   variants: {
     variant: {
-      primary: 'text-primary',
+      primary: "text-primary",
       // This will throw a TypeScript error about the type mismatch.
       secondary: 4,
     },
   },
   defaultVariants: {
-    variant: 'primary',
+    variant: "primary",
   },
 });
 ```
@@ -49,24 +49,24 @@ const variants = svd({
 Same thing happens for nested objects as well. By default, we expect that all the variations of a variant should have the same type. If you try to assign a different type to a variation, TypeScript will throw an error.
 
 ```typescript {10-14}
-import { svd } from 'svdm';
+import { svd } from "svdm";
 
 const variants = svd({
   variants: {
     variant: {
       primary: {
-        base: 'bg-primary hover:bg-primary-11',
-        disabled: 'bg-primary-8',
+        base: "bg-primary hover:bg-primary-11",
+        disabled: "bg-primary-8",
       },
       // This will throw a TypeScript error about the type mismatch.
       // The key `disabled` cannot be found.
       secondary: {
-        base: 'bg-primary hover:bg-primary-11',
+        base: "bg-primary hover:bg-primary-11",
       },
     },
   },
   defaultVariants: {
-    variant: 'primary',
+    variant: "primary",
   },
 });
 ```
@@ -77,7 +77,7 @@ In some cases, you may want to have a optional types for a specific variation. Y
 
 ```typescript {1,4-8,12-13}
 // You need an additional import `singleton` from `svdm`.
-import { svd, singleton } from 'svdm';
+import { svd, singleton } from "svdm";
 
 // Define your own type for explicit typing.
 type CustomVariant = {
@@ -90,17 +90,17 @@ const variants = svd({
     // You need to use `singleton` function in this way!
     preset: singleton<CustomVariant>().use({
       greetings: {
-        title: 'Hello, World!',
-        subtitle: 'This is a subtitle',
+        title: "Hello, World!",
+        subtitle: "This is a subtitle",
       },
       briefings: {
         // The `subtitle` is optional in your type, so it won't throw an error.
-        title: 'Goodbye, World!',
+        title: "Goodbye, World!",
       },
     }),
   },
   defaultVariants: {
-    preset: 'greetings',
+    preset: "greetings",
   },
 });
 ```

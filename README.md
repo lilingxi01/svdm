@@ -7,6 +7,7 @@ Checkout full documents: https://svdm.dev/
 ## What is SVDM?
 
 **SVDM** (**S**tyling **V**ariance **D**ecomposition **M**odule) is a multi-dimensional styling variance decomposition system in TypeScript that allows you to define and manage style variations in a structured and scalable way. This module comes extremely handy when:
+
 - you are building a complex design system with variations that affect multiple components or tags,
 - you are working on a high-quality UI component library that has put so much effort on design details,
 - or you are tired of defining config definition typings again and again.
@@ -28,7 +29,7 @@ npm install svdm
 This is an example of how you can use SVDM to define advanced variances for your components. More examples can be found in the [documentation](https://svdm.dev/).
 
 ```typescript
-import { svd } from 'svdm';
+import { svd } from "svdm";
 
 const buttonVariants = svd({
   variants: {
@@ -38,26 +39,26 @@ const buttonVariants = svd({
       // We have type hints to ensure consistent typing across variances.
       // Such that `primary` and `secondary` must be the same type.
       primary: {
-        base: 'bg-primary hover:bg-primary-11 text-primary-1',
-        disabled: 'bg-primary-8 text-primary-1 cursor-not-allowed',
-        loadingSpinner: 'text-primary-1',
+        base: "bg-primary hover:bg-primary-11 text-primary-1",
+        disabled: "bg-primary-8 text-primary-1 cursor-not-allowed",
+        loadingSpinner: "text-primary-1",
       },
       secondary: {
-        base: 'bg-secondary hover:bg-secondary-11 text-secondary-1',
-        disabled: 'bg-secondary-8 text-secondary-1 cursor-not-allowed',
-        loadingSpinner: 'text-secondary-1',
+        base: "bg-secondary hover:bg-secondary-11 text-secondary-1",
+        disabled: "bg-secondary-8 text-secondary-1 cursor-not-allowed",
+        loadingSpinner: "text-secondary-1",
       },
       // And more as you define, such as tertiary, destructive, etc.
     },
     size: {
-      small: 'h-10 px-4',
-      medium: 'h-12 px-5',
-      large: 'h-14 px-6',
+      small: "h-10 px-4",
+      medium: "h-12 px-5",
+      large: "h-14 px-6",
     },
   },
   defaultVariants: {
-    variant: 'primary',
-    size: 'medium',
+    variant: "primary",
+    size: "medium",
   },
 });
 ```
@@ -65,25 +66,25 @@ const buttonVariants = svd({
 Alternatively, you can use it just like CVA:
 
 ```typescript
-import { svd } from 'svdm';
+import { svd } from "svdm";
 
 const buttonVariants = svd({
   variants: {
     variant: {
       // We are using Radix Colors with Tailwind CSS.
       // Check `radix-colors-tailwind` package if you are interested.
-      primary: 'bg-primary hover:bg-primary-11 text-primary-1',
-      secondary: 'bg-secondary hover:bg-secondary-11 text-secondary-1',
+      primary: "bg-primary hover:bg-primary-11 text-primary-1",
+      secondary: "bg-secondary hover:bg-secondary-11 text-secondary-1",
     },
     size: {
-      small: 'h-10 px-4',
-      medium: 'h-12 px-5',
-      large: 'h-14 px-6',
+      small: "h-10 px-4",
+      medium: "h-12 px-5",
+      large: "h-14 px-6",
     },
   },
   defaultVariants: {
-    variant: 'primary',
-    size: 'medium',
+    variant: "primary",
+    size: "medium",
   },
 });
 ```
