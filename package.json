@@ -4,6 +4,8 @@
   "description": "",
   "scripts": {
     "build": "pnpm -F svdm build",
+    "docs:build": "pnpm -F docs build",
+    "docs:dev": "pnpm -F docs dev",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --check . --write"
   },
