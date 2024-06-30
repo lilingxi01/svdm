@@ -1,5 +1,5 @@
 ---
-title: TypeScript
+title: TypeScript & Types
 description: Multi-Dimensional Styling Variance Decomposition System
 ---
 
@@ -70,3 +70,39 @@ const variants = svd({
   },
 });
 ```
+
+## Customized Singleton Typing
+
+In some cases, you may want to have a optional types for a specific variation. You can achieve this by defining a custom type for that variation, so it won't automatically infer from the definition.
+
+```typescript {1,4-8,12-13}
+// You need an additional import `singleton` from `svdm`.
+import { svd, singleton } from 'svdm';
+
+// Define your own type for explicit typing.
+type CustomVariant = {
+  title: string;
+  subtitle?: string;
+};
+
+const variants = svd({
+  variants: {
+    // You need to use `singleton` function in this way!
+    preset: singleton<CustomVariant>().use({
+      greetings: {
+        title: 'Hello, World!',
+        subtitle: 'This is a subtitle',
+      },
+      briefings: {
+        // The `subtitle` is optional in your type, so it won't throw an error.
+        title: 'Goodbye, World!',
+      },
+    }),
+  },
+  defaultVariants: {
+    preset: 'greetings',
+  },
+});
+```
+
+With this approach, you can define a custom type for a specific variation, and it will be enforced by TypeScript. The benefit? You don't have to define the framework of enforcing a config object to obey the type schema. SVDM will do it for you in a more concise way.

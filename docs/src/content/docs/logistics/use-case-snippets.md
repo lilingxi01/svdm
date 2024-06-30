@@ -3,6 +3,8 @@ title: Use Case Snippets
 description: Multi-Dimensional Styling Variance Decomposition System
 ---
 
+For completed use cases, please refer to the **Usages** section in sidebar. There are multiple real-world examples that you can use as a reference.
+
 ## Advanced Variances
 
 ```typescript
