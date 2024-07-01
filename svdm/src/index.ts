@@ -67,17 +67,17 @@ type CompoundedVariantsOutput<T> = {
   [K in keyof T]: VariantSingletonValue<T[K]>;
 };
 
-type SVDProps<Schema> = {
+type SVDInternalProps<Schema> = {
   [K in keyof Schema]: keyof Schema[K];
 };
 
 type StylingVarianceDecompositionParams<Schema> = {
   variants: CompoundedVariantsSchema<Schema>;
-  defaultVariants: SVDProps<Schema>;
+  defaultVariants: SVDInternalProps<Schema>;
 };
 
 type StylingVarianceDecomposition<Schema> = (
-  _: Partial<SVDProps<Schema>>,
+  _: Partial<SVDInternalProps<Schema>>,
 ) => CompoundedVariantsOutput<Schema>;
 
 /**
@@ -89,7 +89,7 @@ type StylingVarianceDecomposition<Schema> = (
 function svd<Variants>(
   params: StylingVarianceDecompositionParams<Variants>,
 ): StylingVarianceDecomposition<Variants> {
-  return (props: Partial<SVDProps<Variants>>) => {
+  return (props: Partial<SVDInternalProps<Variants>>) => {
     const keys = Object.keys(params.variants);
     const output: Partial<CompoundedVariantsOutput<Variants>> = {};
     for (const key of keys) {
@@ -103,6 +103,15 @@ function svd<Variants>(
     return output as CompoundedVariantsOutput<Variants>;
   };
 }
+
+/**
+ * The external typing for the props that will be passed into the SVD function.
+ * The wildcard type is expected to be the typeof the svd function's output.
+ */
+type SVDProps<SVDFunction> =
+  SVDFunction extends StylingVarianceDecomposition<infer Schema>
+    ? Partial<SVDInternalProps<Schema>>
+    : never;
 
 export { svd, singleton };
 export type { SVDProps };
