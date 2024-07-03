@@ -1,4 +1,4 @@
-name: Unit Test
+name: Unit Test, Lint, and Build
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - "**"
 
 jobs:
-  lint:
+  check:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,3 +25,5 @@ jobs:
         run: pnpm lint:check
       - name: Check Tests
         run: pnpm test
+      - name: Check Build
+        run: pnpm build
