@@ -10,6 +10,7 @@
     "bump:minor": "cd svdm && pnpm version minor --no-workspaces-update && cd ..",
     "bump:major": "cd svdm && pnpm version major --no-workspaces-update && cd ..",
     "release": "pnpm -F svdm build && cd svdm && pnpm publish && cd ..",
+    "release:ci": "pnpm -F svdm build && cd svdm && pnpm publish --no-git-checks && cd ..",
     "test": "pnpm -F svdm jest",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --check . --write"

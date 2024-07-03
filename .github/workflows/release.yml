@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*"
+      - 'v*.*.*'
 
 jobs:
   release:
@@ -27,6 +27,6 @@ jobs:
       - name: Check Tests
         run: pnpm test
       - name: Create Build and Release
-        run: pnpm release
+        run: pnpm release:ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
