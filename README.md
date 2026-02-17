@@ -92,3 +92,11 @@ const buttonVariants = svd({
 Have you observed the difference? SVDM allows you to define an object for each variance, which is much more powerful than CVA. However, you can still use it just like CVA if you prefer (for future scalability considerations).
 
 We have a full set of TypeScript typings to help you be more productive and avoid runtime errors. If you try to assign different types to different variations of a variant, TypeScript will throw an error. This is a great way to ensure consistent typing across variances. Read more about this in the [documentation](https://svdm.dev/).
+
+## Contributors
+
+- Lingxi
+- Lingxi
+- Lingxi
+- Lingxi
+- Lingxi
